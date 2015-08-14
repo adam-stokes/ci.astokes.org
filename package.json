@@ -1,0 +1,35 @@
+{
+  "name": "ci-astokes-org",
+  "version": "0.0.0",
+  "description": "web ci interface",
+  "license": "MIT",
+  "repository": "battlemidget/ci.astokes.org",
+  "author": {
+    "name": "Adam Stokes",
+    "email": "adam.stokes@ubuntu.com",
+    "url": "astokes.org"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "babel": "^5.8.21",
+    "good": "^6.3.0",
+    "good-console": "^5.0.2",
+    "hapi": "^9.0.1",
+    "jade": "^1.11.0",
+    "yar": "^3.0.3"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}

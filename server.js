@@ -1,28 +1,14 @@
 "use strict";
 
-require("babel/polyfill");
 import Hapi from "hapi";
-import Good from "good";
-import Yar from "yar";
 
 let server = new Hapi.Server();
-server.connection({
-    port: 8080
-});
-
-let yarOpts = {
-    cookieOptions: {
-        password: "tehehehhohaheae",
-        clearInvalid: true,
-        isSecure: false
-    }
-};
+server.connection({port: process.env.PORT || 8082});
 
 server.register({
-    register: Yar,
-    options: yarOpts
+    register: require("vision")
 }, err => {
-    if (err) {
+    if(err) {
         throw err;
     }
 });
@@ -32,12 +18,12 @@ server.views({
         jade: require("jade")
     },
     relativeTo: __dirname,
-    path: "./templates",
-    context: {}
+    path: "./templates"
 });
 
+
 server.register({
-    register: Good,
+    register: require("good"),
     options: {
         reporters: [{
             reporter: require("good-console"),
@@ -51,8 +37,6 @@ server.register({
     if (err) {
         throw err; // something bad happened loading the plugin
     }
-
-    server.start(() => {
-        server.log("info", "Server running at: " + server.info.uri);
-    });
 });
+
+export default server;

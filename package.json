@@ -27,6 +27,7 @@
     "good-console": "^5.0.2",
     "hapi": "^9.0.1",
     "jade": "^1.11.0",
+    "vision": "^2.0.1",
     "yar": "^3.0.3"
   },
   "devDependencies": {
